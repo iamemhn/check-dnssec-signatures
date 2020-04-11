@@ -1,0 +1,71 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.31.2.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: 243e20a6d10398982f14012c05d8474e01876957c6ae86713721750594565878
+
+name:           check-dnssec-signatures
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/iamemhn/check-dnssec-signatures#readme>
+homepage:       https://github.com/iamemhn/check-dnssec-signatures#readme
+bug-reports:    https://github.com/iamemhn/check-dnssec-signatures/issues
+author:         Ernesto Hernández-Novich
+maintainer:     github@iamemhn.link
+copyright:      2020 Ernesto Hernández-Novich
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    ChangeLog.md
+
+source-repository head
+  type: git
+  location: https://github.com/iamemhn/check-dnssec-signatures
+
+library
+  exposed-modules:
+      Util
+  other-modules:
+      Paths_check_dnssec_signatures
+  hs-source-dirs:
+      src
+  build-depends:
+      aeson
+    , aeson-pretty
+    , async
+    , base >=4.7 && <5
+    , bytestring
+    , cassava
+    , containers
+    , dns
+    , optparse-applicative
+    , text
+    , time
+    , vector
+  default-language: Haskell2010
+
+executable check-dnssec-signatures
+  main-is: Main.hs
+  other-modules:
+      Paths_check_dnssec_signatures
+  hs-source-dirs:
+      app
+  ghc-options: -threaded -rtsopts -fwarn-unused-binds -fwarn-unused-imports -with-rtsopts=-N -O2
+  build-depends:
+      aeson
+    , aeson-pretty
+    , async
+    , base >=4.7 && <5
+    , bytestring
+    , cassava
+    , check-dnssec-signatures
+    , containers
+    , dns
+    , optparse-applicative
+    , text
+    , time
+    , vector
+  default-language: Haskell2010

@@ -1,0 +1,45 @@
+name:                check-dnssec-signatures
+version:             0.1.0.0
+github:              "iamemhn/check-dnssec-signatures"
+license:             BSD3
+author:              "Ernesto Hernández-Novich"
+maintainer:          "github@iamemhn.link"
+copyright:           "2020 Ernesto Hernández-Novich"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+description:         Please see the README on GitHub at <https://github.com/iamemhn/check-dnssec-signatures#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- aeson
+- aeson-pretty
+- async
+- bytestring
+- cassava
+- containers
+- dns
+- optparse-applicative
+- text
+- time
+- vector
+
+library:
+  source-dirs: src
+
+executables:
+  check-dnssec-signatures:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -fwarn-unused-binds
+    - -fwarn-unused-imports
+    - -with-rtsopts=-N
+    - -O2
+    dependencies:
+    - check-dnssec-signatures
+
