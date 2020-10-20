@@ -1,12 +1,12 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE DeriveGeneric     #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
 module Util where
 
 import Control.Concurrent.Async ( mapConcurrently )
 import Data.Aeson               ( ToJSON(..) )
 import Data.Aeson.Encode.Pretty ( encodePretty )
 import Data.Int
-import Data.ByteString          ( ByteString )
 import Data.ByteString.Lazy     ( toStrict )
 import Data.Csv                 ( EncodeOptions(..)
                                 , DefaultOrdered(..)
@@ -15,7 +15,6 @@ import Data.Csv                 ( EncodeOptions(..)
                                 , ToNamedRecord(..)
                                 , (.=)
                                 , defaultEncodeOptions
-                                , encodeWith
                                 , encodeDefaultOrderedByNameWith
                                 , namedRecord
                                 , toField
@@ -44,12 +43,9 @@ import Network.DNS.Types        ( Domain
                                 , RData(..)
                                 , RD_RRSIG(..)
                                 , ResourceRecord(..)
-                                , QueryControls(..)
                                 , adFlag
                                 , doFlag
                                 )
-import Data.Time                ( UTCTime )
-import Control.Monad            ( foldM )
 
 import qualified Data.Map as DM
 
@@ -75,10 +71,10 @@ instance ToField Bool where
   toField False = "no"
 
 newtype Results = Results { getResults :: DM.Map Text [Detail] }
-                deriving (Generic)
+                deriving (Generic,Semigroup)
 
-instance Semigroup Results where
-  (Results m0) <> (Results m1) = Results $ m0 <> m1
+--instance Semigroup Results where
+--  (Results m0) <> (Results m1) = Results $ m0 <> m1
 
 instance Monoid Results where
   mempty  = Results DM.empty 
@@ -167,3 +163,8 @@ checkSignatures threshold domains = do
        , expiration = rrsigExpiration rr
        , alert      = posixSecondsToUTCTime (fromIntegral $ rrsigExpiration rr) < threshold
        }
+
+foo :: IO ()
+foo = putStrLn "hello"
+
+

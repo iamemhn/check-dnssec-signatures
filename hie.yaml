@@ -1,0 +1,10 @@
+cradle:
+  stack:
+    - path: "./src"
+      component: "check-dnssec-signatures:lib"
+
+    - path: "./app/Main.hs"
+      component: "check-dnssec-signatures:exe:check-dnssec-signatures"
+
+    - path: "./app/Paths_check_dnssec_signatures.hs"
+      component: "check-dnssec-signatures:exe:check-dnssec-signatures"
