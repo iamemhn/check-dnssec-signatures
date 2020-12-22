@@ -1,13 +1,13 @@
 cabal-version: 1.12
 
--- This file has been generated from package.yaml by hpack version 0.31.2.
+-- This file has been generated from package.yaml by hpack version 0.33.0.
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 243e20a6d10398982f14012c05d8474e01876957c6ae86713721750594565878
+-- hash: d36cd1f3a25660192ad68121b2a929471de47aad66d42c9e01f2427a36c0a729
 
 name:           check-dnssec-signatures
-version:        0.1.0.0
+version:        0.1.0.1
 description:    Please see the README on GitHub at <https://github.com/iamemhn/check-dnssec-signatures#readme>
 homepage:       https://github.com/iamemhn/check-dnssec-signatures#readme
 bug-reports:    https://github.com/iamemhn/check-dnssec-signatures/issues

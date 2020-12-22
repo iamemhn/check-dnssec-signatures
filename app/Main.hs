@@ -1,7 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 module Main where
 
-import Data.Semigroup           ( (<>) )
 import Data.Time.Clock          ( addUTCTime
                                 , getCurrentTime
                                 , nominalDay
